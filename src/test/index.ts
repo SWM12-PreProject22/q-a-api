@@ -3,13 +3,19 @@ import { ApolloServer } from "apollo-server-express"
 import { readFileSync } from "fs"
 import resolvers from "resolvers"
 import DB from "config/connectDB"
+import { commentsLoader } from "lib"
 const typeDefs = readFileSync("src/typeDefs.graphql", "utf-8")
 
 const serverConfig = {
     typeDefs,
     resolvers,
     context: async () => {
-        return { db: await DB.get() }
+        return {
+            db: await DB.get(),
+            loaders: {
+                commentsLoader: commentsLoader()
+            }
+        }
     }
 }
 

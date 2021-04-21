@@ -8,7 +8,7 @@ import { createServer } from "http"
 import queryComplexity, { simpleEstimator } from "graphql-query-complexity"
 import depthLimit from "graphql-depth-limit"
 import DB from "config/connectDB"
-import { commentsLoader } from "lib/dataloader"
+import { commentsLoader } from "lib"
 
 import express from "express"
 import expressPlayground from "graphql-playground-middleware-express"
