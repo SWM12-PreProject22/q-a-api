@@ -76,6 +76,41 @@ describe(`Query Test`, () => {
                 assert.deepStrictEqual(data.data.getOpenQNA[0].comment[0].content, comment1A.content)
                 assert.deepStrictEqual(data.data.getOpenQNA[0].comment[0].id, comment1A.id)
             })
+
+            it(`get All QNA`, async () => {
+                const query = `
+                    query{
+                        getAllQNA{
+                            qnaId
+                            comment{
+                                qnaId
+                            }
+                        }
+                    }
+                `
+                const res = await client.query({
+                    query
+                })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.getAllQNA[0].qnaId, data.data.getAllQNA[0].comment[0].qnaId)
+            })
+
+            it(`get my QNA`, async () => {
+                const query = `
+                    query{
+                        getMyQNA(
+                            id:"${qna1A.id}"
+                        ){
+                            id
+                        }
+                    }
+                `
+                const res = await client.query({
+                    query
+                })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.getMyQNA[0].id, qna1A.id)
+            })
         })
     })
 })
