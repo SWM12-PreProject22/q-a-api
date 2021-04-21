@@ -1,3 +1,37 @@
+scalar ObjectID
+
 type Query{
     test: String!
+    openQNA: [QNA!]!
+    allQNA: [QNA!]!
+    closeQNA: [QNA!]!
+    myQNA: [QNA!]!
+}
+
+type Mutation{
+    addComment(
+        qnaId: ObjectID!,
+        content: String!
+    ): boolean!
+    closeQNA(   
+        qnaId: ObjectID!,
+        id: String!
+    ): boolean!
+    addQNA(
+        id: String!,
+        content: String!
+    )
+}
+
+type QNA{
+    id: String!
+    content: String!
+    qnaId: ObjectID!
+}
+
+type Comment{
+    qnaId: ObjectID!
+    id: String!
+    content: String!
+    commentId: ObjectID!
 }
