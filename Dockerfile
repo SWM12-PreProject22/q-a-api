@@ -9,6 +9,6 @@ ADD ./ /server
 RUN yarn install; \
     yarn run build
 
-EXPOSE 3000
+EXPOSE 7777
 
 CMD [ "yarn", "run", "on" ]
