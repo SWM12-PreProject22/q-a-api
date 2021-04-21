@@ -22,7 +22,7 @@ export default {
             throw new ApolloError("해당 id의 QNA가 존재하지 않습니다.")
         }
         return await db.collection("comment").insertOne({
-            qnaId,
+            qnaId: new ObjectId(qnaId),
             id,
             content
         }).then(({ result }) => result.n === 1 ? true : false)

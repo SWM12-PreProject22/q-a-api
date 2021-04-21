@@ -29,6 +29,7 @@ type QNA{
     content: String!
     qnaId: ObjectID!
     status: Boolean!
+    comment: [Comment!]!
 }
 
 type Comment{

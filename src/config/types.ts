@@ -1,5 +1,11 @@
 import { ReadStream } from "fs"
 import { ObjectID } from "mongodb"
+import DataLoader from "dataloader"
+
+export interface Loaders {
+    commentsLoader: DataLoader<ObjectID, any, ObjectID>
+}
+
 export interface File {
     filename: string
     mimetype: string
@@ -15,7 +21,7 @@ export interface QNA {
 
 export interface Comment {
     id: string
-    qndId: ObjectID
+    qnaId: ObjectID
     _id: ObjectID
     content: string
 }
