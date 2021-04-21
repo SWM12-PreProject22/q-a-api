@@ -11,4 +11,4 @@ RUN yarn install; \
 
 EXPOSE 7777
 
-CMD [ "yarn", "run", "on" ]
+CMD [ "yarn", "run","dockerize-test" ]
