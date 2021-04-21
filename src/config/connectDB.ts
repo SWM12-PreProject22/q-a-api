@@ -4,7 +4,7 @@ import { MongoClient, Db } from "mongodb"
 let db: Db | null = null
 let instance: number = 0
 const connectDB = () => {
-
+    if (process.env.MOD === "TEST") process.env.DB_HOST = "mongodb://localhost:27017/test"
     const connect = async () => {
 
         try {

@@ -2,10 +2,10 @@ scalar ObjectID
 
 type Query{
     test: String!
-    openQNA: [QNA!]!
-    allQNA: [QNA!]!
-    closeQNA: [QNA!]!
-    myQNA: [QNA!]!
+    getOpenQNA: [QNA!]!
+    getAllQNA: [QNA!]!
+    getCloseQNA: [QNA!]!
+    getMyQNA(id: String!): [QNA!]!
 }
 
 type Mutation{

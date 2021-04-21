@@ -9,13 +9,13 @@ export interface File {
 
 export interface QNA {
     id: string
-    qnaId: ObjectID
+    _id: ObjectID
     content: string
 }
 
 export interface Comment {
     id: string
     qndId: ObjectID
-    contentId: ObjectID
+    _id: ObjectID
     content: string
 }
