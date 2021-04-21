@@ -1,7 +1,7 @@
 {
-  "name": "graphql-ts-boilerplate",
+  "name": "qna-api",
   "version": "1.0.0",
-  "description": "graphql-ts-boilerplate",
+  "description": "qna-api",
   "main": "src/index.ts",
   "scripts": {
     "test": "export MOD=TEST; NODE_PATH=src/ ts-mocha -p ./tsconfig.json src/test/*.test.ts --exit",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pukuba/graphql-ts-boilerplate.git"
+    "url": "git+https://github.com/SWM12-PreProject22/qna-api.git"
   },
   "keywords": [
     "boilerplate"
@@ -20,9 +20,9 @@
   "author": "pukuba",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pukuba/graphql-ts-boilerplate/issues"
+    "url": "https://github.com/SWM12-PreProject22/qna-api/issues"
   },
-  "homepage": "https://github.com/pukuba/graphql-ts-boilerplate#readme",
+  "homepage": "https://github.com/SWM12-PreProject22/qna-api#readme",
   "dependencies": {
     "apollo-server-express": "^2.19.2",
     "apollo-server-testing": "2.9.9",
