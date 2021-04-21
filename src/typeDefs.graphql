@@ -1,7 +1,3 @@
 type Query{
     test: String!
 }
-
-type Mutation{
-    imgUpload(file: Upload): Boolean!
-}
