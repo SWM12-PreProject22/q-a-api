@@ -17,7 +17,7 @@ export default {
             db: Db
         }
     ) => {
-        const flag = await db.collection("post").findOne({ $or: [{ _id: new ObjectId(qnaId), qna: true }] })
+        const flag = await db.collection("post").findOne({ $or: [{ _id: new ObjectId(qnaId), status: true }] })
         if (flag === null) {
             throw new ApolloError("해당 id의 QNA가 존재하지 않습니다.")
         }
@@ -42,7 +42,7 @@ export default {
         }
     ) => await db.collection("post").insertOne({
         id,
-        content
+        content,
+        status: true
     }).then(({ result }) => result.n === 1 ? true : false)
-
 }

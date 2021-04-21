@@ -1,7 +1,5 @@
 import assert from "assert"
 import client from "test"
-import { join } from "path"
-import { createReadStream } from "fs"
 import { parse } from "lib"
 
 describe(`Server Init Test`, () => {
