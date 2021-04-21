@@ -7,8 +7,14 @@ import {
     qna1Result,
     comment1A
 } from "test/mock"
+import { Db } from "mongodb"
 
-describe(`Create Test`, () => {
+describe(`Mutation Test`, () => {
+    after(async () => {
+        const db: Db = await DB.get()
+        await db.collection("post").deleteMany({})
+        await db.collection("comment").deleteMany({})
+    })
     describe(`Success`, () => {
         describe(`QNA - 1`, () => {
             it("Create Post", async () => {
