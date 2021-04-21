@@ -1,5 +1,7 @@
 # Q&A 게시판 API
 
+[![Build Status](https://travis-ci.org/SWM12-PreProject22/qna-api.svg?branch=master)](https://travis-ci.org/SWM12-PreProject22/qna-api)
+
 ## 문서
 Document & Schema: https://pukuba.ga/api
 
