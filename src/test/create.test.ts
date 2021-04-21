@@ -45,6 +45,24 @@ describe(`Create Test`, () => {
                 const data = parse(res)
                 assert.deepStrictEqual(data.data.addComment, true)
             })
+
+            it("Close Post", async () => {
+                const db = await DB.get()
+                const user = await db.collection("post").findOne({ id: qna1A.id })
+                const mutation = `
+                    mutation{
+                        closeQNA(
+                            qnaId:"${user._id}",
+                            id:"${qna1Result.id}"
+                        )
+                    }
+                `
+                const res = await client.mutate({
+                    mutation
+                })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.closeQNA, true)
+            })
         })
     })
 })
