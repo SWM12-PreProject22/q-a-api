@@ -10,23 +10,25 @@ type Query{
 
 type Mutation{
     addComment(
+        id: String!,
         qnaId: ObjectID!,
         content: String!
-    ): boolean!
+    ): Boolean!
     closeQNA(   
         qnaId: ObjectID!,
         id: String!
-    ): boolean!
+    ): Boolean!
     addQNA(
         id: String!,
         content: String!
-    )
+    ): Boolean!
 }
 
 type QNA{
     id: String!
     content: String!
     qnaId: ObjectID!
+    status: Boolean!
 }
 
 type Comment{
