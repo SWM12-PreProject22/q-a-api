@@ -1,23 +1,31 @@
 scalar ObjectID
 
 type Query{
+    # 테스트 쿼리입니다.
     test: String!
+    # 해결안된 Q&A를 모든 불러오는 쿼리입니다.
     getOpenQNA: [QNA!]!
+    # 모든 Q&A를 불러오는 쿼리입니다.
     getAllQNA: [QNA!]!
+    # 해결된 Q&A를 불러오는 쿼리입니다.
     getCloseQNA: [QNA!]!
+    # 본인이 작성한 Q&A를 모두 불러오는 쿼리입니다.
     getMyQNA(id: String!): [QNA!]!
 }
 
 type Mutation{
+    # Q&A 답변 작성 뮤테이션입니다.
     addComment(
-        id: String!,
+        id: String!, 
         qnaId: ObjectID!,
         content: String!
     ): Boolean!
+    # Q&A 게시글을 닫는 뮤테이션입니다.
     closeQNA(   
         qnaId: ObjectID!,
         id: String!
     ): Boolean!
+    # Q&A 게시글을 작성하는 뮤테이션입니다.
     addQNA(
         id: String!,
         content: String!
@@ -25,16 +33,25 @@ type Mutation{
 }
 
 type QNA{
+    # 게시글 작성자의 고유 id입니다.
     id: String!
+    # 게시글의 내용 입니다.
     content: String!
+    # 게시글의 고유 id입니다.
     qnaId: ObjectID!
+    # 게시글의 상태입니다.
     status: Boolean!
+    # 게시글의 답변입니다.
     comment: [Comment!]!
 }
 
 type Comment{
+    # 부모 게시글의 id입니다.
     qnaId: ObjectID!
+    # 댓글 작성자의 고유 id입니다.
     id: String!
+    # 댓글의 내용 입니다.
     content: String!
+    # 댓글의 고유 id입니다.
     commentId: ObjectID!
 }
