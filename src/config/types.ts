@@ -12,6 +12,7 @@ export interface QNA {
     content: string
     status: Boolean
     comment: Comment[]
+    date: number
 }
 
 export interface Comment {

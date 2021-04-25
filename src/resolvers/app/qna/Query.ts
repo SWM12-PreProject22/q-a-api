@@ -5,5 +5,6 @@ export default {
     getOpenQNA: async (parent: void, args: void, { db }: { db: Db }) => await db.collection("post").find({ status: true }).toArray(),
     getAllQNA: async (parent: void, args: void, { db }: { db: Db }) => await db.collection("post").find({}).toArray(),
     getCloseQNA: async (parent: void, args: void, { db }: { db: Db }) => await db.collection("post").find({ status: false }).toArray(),
-    getMyQNA: async (parent: void, { id }: { id: string }, { db }: { db: Db }) => await db.collection("post").find({ id }).toArray()
+    getMyQNA: async (parent: void, { id }: { id: string }, { db }: { db: Db }) => await db.collection("post").find({ id }).toArray(),
+    getDateByQNA: async (parent: void, { date }: { date: number }, { db }: { db: Db }) => await db.collection("post").find({ date: { $gte: date } }).toArray()
 }

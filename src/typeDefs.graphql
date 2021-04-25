@@ -1,5 +1,7 @@
 """Can be a 24 byte hex string, 12 byte binary string or a Number. """
 scalar ObjectID 
+"""DateTime YYYY-MM-DD HH:MM:SS"""
+scalar DateTime
 
 """GraphQL 쿼리입니다"""
 type Query{
@@ -20,6 +22,15 @@ type Query{
     getMyQNA(
         """게시글 작성자의 id입니다."""
         id: String!
+    ): [QNA!]!
+
+    """특정 시간을 기준으로 뒤에 작성된 게시글을 가져옵니다."""
+    getDateByQNA(
+        """
+        date는 타임스탬프를 인자로 받습니다.
+        new Date().valueOf() 시용하시면 됩니다.
+        """
+        date: Float!
     ): [QNA!]!
 
     """오픈되어있는 멘토링 모집글 모두 불러오는 쿼리입니다."""
@@ -118,6 +129,9 @@ type QNA{
 
     """게시글의 답변입니다."""
     comment: [Comment!]!
+
+    """게시글이 작성된 시간입니다"""
+    date: DateTime!
 }
 
 """질문 게시글에 대한 답변 타입입니다."""

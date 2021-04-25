@@ -63,7 +63,8 @@ export default {
         return await db.collection("post").insertOne({
             id,
             content,
-            status: true
+            status: true,
+            date: new Date().valueOf()
         }).then(({ result }) => result.n === 1 ? true : false)
     },
 
