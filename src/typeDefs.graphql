@@ -21,6 +21,9 @@ type Query{
         """게시글 작성자의 id입니다."""
         id: String!
     ): [QNA!]!
+
+
+
 }
 
 type Mutation{
@@ -68,6 +71,8 @@ type QNA{
     """게시글의 고유 id입니다."""
     qnaId: ObjectID!
 
+    date: DateTime
+
     """게시글의 상태입니다."""
     status: Boolean!
 
@@ -89,4 +94,25 @@ type Comment{
 
     """댓글의 고유 id입니다."""
     commentId: ObjectID!
+}
+
+"""멘토링 모집글 대한 타입입니다."""
+type Topic{
+    """멘토링 모집글 제목입니다."""
+    title: string!
+
+    """멘토님 성함입니다."""
+    mentor: String!
+
+    """설명글 입니다."""
+    description: String!
+
+    """모집이 계속되고 있는지."""
+    status: Boolean!
+
+    """신청한 사람들의 id"""
+    status: [String!]!
+
+    """멘토링 모집글 게시글의 고유 id"""
+    id: OBjectID!
 }
