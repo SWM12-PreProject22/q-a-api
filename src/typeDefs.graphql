@@ -22,8 +22,11 @@ type Query{
         id: String!
     ): [QNA!]!
 
+    """오픈되어있는 멘토링 모집글 모두 불러오는 쿼리입니다."
+    getAllTopic: [Topic!]!
 
-
+    """멘토링 모집 게시글의 id를 가지고 상세 정보를 가져오는 쿼리입니다."
+    getIdByTopic: Topic!
 }
 
 type Mutation{
@@ -57,6 +60,27 @@ type Mutation{
 
         """게시글의 내용 입니다."""
         content: String!
+    ): Boolean!
+
+    """멘토링 모집 게시글의 상태를 변경"""
+    closeTopic(
+        """게시글의 고유 id입니다."""
+        id:ObjectID!
+    ): [String!]!
+
+    """멘토링 모집 게시글을 작성"""
+    addTopic(
+        """게시글의 제목"""
+        title: String!,
+
+        """멘토링을 해주실 멘토님의 성함"""
+        mentor: String!,
+
+        """게시글의 내용"""
+        description: String!,
+
+        """게시글 작성자의 id"""
+        creater: String!,
     ): Boolean!
 }
 
@@ -111,7 +135,7 @@ type Topic{
     status: Boolean!
 
     """신청한 사람들의 id"""
-    status: [String!]!
+    ids: [String!]!
 
     """멘토링 모집글 게시글의 고유 id"""
     id: OBjectID!
