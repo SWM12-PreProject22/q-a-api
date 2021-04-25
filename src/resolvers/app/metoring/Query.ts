@@ -10,5 +10,6 @@ export default {
         } catch {
             throw new ApolloError("id는 ObjectId가 아닙니다.")
         }
-    }
+    },
+    getTopicByUserId: async (parent: void, { id }: { id: string }, { db }: { db: Db }) => await db.collection("user").find({ id }).toArray()
 }
