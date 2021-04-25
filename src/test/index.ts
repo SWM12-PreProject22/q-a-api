@@ -11,6 +11,7 @@ const serverConfig = {
     resolvers,
     context: async () => {
         return {
+            token: "test",
             db: await DB.get(),
             loaders: {
                 commentsLoader: commentsLoader(),

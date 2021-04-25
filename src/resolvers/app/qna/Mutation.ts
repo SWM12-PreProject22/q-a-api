@@ -1,5 +1,6 @@
 import { ApolloError } from "apollo-server-errors"
 import { ObjectId, Db } from "mongodb"
+import env from "config/env"
 
 export default {
     addComment: async (
@@ -12,11 +13,16 @@ export default {
             id: string,
             content: string
         }, {
-            db
+            db,
+            token
         }: {
-            db: Db
+            db: Db,
+            token: string
         }
     ) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
         try {
             const _id = new ObjectId(qnaId)
             const flag = await db.collection("post").findOne({ _id, status: true })
@@ -44,15 +50,22 @@ export default {
             id: string,
             content: string
         }, {
-            db
+            db,
+            token
         }: {
-            db: Db
+            db: Db,
+            token: string
         }
-    ) => await db.collection("post").insertOne({
-        id,
-        content,
-        status: true
-    }).then(({ result }) => result.n === 1 ? true : false),
+    ) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
+        return await db.collection("post").insertOne({
+            id,
+            content,
+            status: true
+        }).then(({ result }) => result.n === 1 ? true : false)
+    },
 
     closeQNA: async (
         parent: void, {
@@ -62,11 +75,16 @@ export default {
             id: string,
             qnaId: ObjectId
         }, {
-            db
+            db,
+            token
         }: {
-            db: Db
+            db: Db,
+            token: string
         }
     ) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
         try {
             const _id = new ObjectId(qnaId)
             return await db.collection("post").updateOne({

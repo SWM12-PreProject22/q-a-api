@@ -1,5 +1,6 @@
 import { ApolloError } from "apollo-server-errors"
 import { ObjectId, Db } from "mongodb"
+import env from "config/env"
 
 export default {
     addTopic: async (
@@ -14,11 +15,16 @@ export default {
             description: string,
             creater: string
         }, {
-            db
+            db,
+            token
         }: {
-            db: Db
+            db: Db,
+            token: string
         }
     ) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
         const result = await db.collection("topic").insertOne({
             title,
             description,
@@ -32,7 +38,10 @@ export default {
         }).then(({ result }) => result.n === 1 ? true : false)
     },
 
-    closeTopic: async (parent: void, { id }: { id: string }, { db }: { db: Db }) => {
+    closeTopic: async (parent: void, { id }: { id: string }, { db, token }: { db: Db, token: string }) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
         try {
             const _id = new ObjectId(id)
             const users = await db.collection("user").find({ topicId: _id }).toArray()
@@ -56,11 +65,16 @@ export default {
             topicId: string,
             applicant: string
         }, {
-            db
+            db,
+            token
         }: {
-            db: Db
+            db: Db,
+            token: string
         }
     ) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
         try {
             const postId = new ObjectId(topicId)
             const result = await db.collection("user").findOne({

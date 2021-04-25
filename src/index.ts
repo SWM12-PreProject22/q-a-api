@@ -31,11 +31,10 @@ const start = async () => {
         typeDefs,
         resolvers,
         context: ({ req }) => {
-            if (req.headers.authorization !== env.token) {
-                throw new ApolloError("API KEY가 유효하지 않습니다.")
-            }
+            const token = req.headers.authorization || "test"
             return {
                 db,
+                token,
                 loaders: {
                     commentsLoader: commentsLoader(),
                     usersLoader: usersLoader()
