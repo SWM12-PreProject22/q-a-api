@@ -18,19 +18,27 @@ export default {
         }: {
             db: Db
         }
-    ) => await db.collection("post").insertOne({
-        title,
-        description,
-        status: true,
-        mentor,
-        creater
-    }).then(({ result }) => result.n === 1 ? true : false),
+    ) => {
+
+        const result = await db.collection("topic").insertOne({
+            title,
+            description,
+            status: true,
+            mentor,
+            creater
+        }).then(({ ops }) => ops[0])
+
+        return await db.collection("user").insertOne({
+            id: creater,
+            topicId: result._id
+        }).then(({ result }) => result.n === 1 ? true : false)
+    },
 
     closeTopic: async (parent: void, { id }: { id: string }, { db }: { db: Db }) => {
         try {
             const _id = new ObjectId(id)
             const users = await db.collection("user").find({ topicId: _id }).toArray()
-            await db.collection("post").deleteMany({
+            await db.collection("topic").deleteMany({
                 _id
             })
             await db.collection("user").deleteMany({
