@@ -30,7 +30,10 @@ const start = async () => {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
-        context: () => {
+        context: ({ req }) => {
+            if (req.headers.authorization !== env.token) {
+                throw new ApolloError("API KEY가 유효하지 않습니다.")
+            }
             return {
                 db,
                 loaders: {

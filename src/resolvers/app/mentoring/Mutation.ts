@@ -19,7 +19,6 @@ export default {
             db: Db
         }
     ) => {
-
         const result = await db.collection("topic").insertOne({
             title,
             description,
@@ -58,7 +57,9 @@ export default {
             applicant: string
         }, {
             db
-        }: { db: Db }
+        }: {
+            db: Db
+        }
     ) => {
         try {
             const postId = new ObjectId(topicId)

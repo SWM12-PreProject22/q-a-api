@@ -17,6 +17,8 @@ API 엔드 포인트 입니다.
 
 문서 보고 이해 안 되시는 부분, 모르시는 부분은 언제든지 연락주세요!
 
+모든 쿼리, 뮤테이션은 headers에 유효한 Authorization을 넣어 요청해야합니다.
+
 <hr>
 
 ## Request Example
@@ -42,7 +44,10 @@ const callAPI = async () => {
     const endPoint = "https://pukuba.ga/api"
     const response = await fetch(
         `${endPoint}?query=${query}`, {
-        method: "GET"
+        method: "GET",
+        headers: {
+            Authorization: env.TOKEN
+        }
     })
     const result = await response.json()
     console.log(result)
@@ -71,6 +76,7 @@ const callAPI = async() => {
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: env.TOKEN
             },
             body: JSON.stringify({ query })
         })
