@@ -25,9 +25,10 @@ export interface Topic {
     title: string
     mentor: string
     description: string
-    status: Boolean
+    creater: string
     ids: User[]
     _id: ObjectID
+    id: string
 }
 
 export interface User {

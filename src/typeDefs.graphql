@@ -31,7 +31,7 @@ type Query{
         id: ObjectID!
     ): Topic!
 
-    """getTopicByUserId"""
+    """어떠한 유저가 가입한 topic을 가져오는 쿼리입니다."""
     getTopicByUserId(
         """유저의 고유 id입니다."""
         id: String!
@@ -147,11 +147,11 @@ type Topic{
     """설명글 입니다."""
     description: String!
 
-    """모집이 계속되고 있는지."""
-    status: Boolean!
-
     """신청한 유저들"""
     users: [User!]!
+
+    """게시글을 작선한 사람"""
+    creater: String!
 
     """멘토링 모집글 게시글의 고유 id"""
     id: ObjectID!

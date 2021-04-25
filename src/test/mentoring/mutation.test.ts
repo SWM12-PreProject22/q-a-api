@@ -12,7 +12,7 @@ describe(`Mutation Test`, () => {
                 const mutation = `
                     mutation{
                         addTopic(
-                            title:"MSA 200% 사용하기",
+                            title:"MSA 200% 활용하기",
                             description:"MSA에 관해서 같이 멘토링 듣고싶은분들 모여요!",
                             mentor:"남승원",
                             creater:"213213521312"
@@ -30,7 +30,7 @@ describe(`Mutation Test`, () => {
                 const mutation = `
                     mutation{
                         addTopic(
-                            title:"테스팅 200% 로 하는법!",
+                            title:"테스팅 200% 하는법!",
                             description:"테스팅에 대해서 멘토링 듣고싶은분들 손!",
                             mentor:"pukuba",
                             creater:"213213521315"
@@ -217,6 +217,42 @@ describe(`Mutation Test`, () => {
                 })
                 const data = parse(res)
                 assert.deepStrictEqual(data.errors[0].message, "해당 게시글이 존재하지 않습니다.")
+            })
+        })
+    })
+
+    describe(`Create Topic`, () => {
+        describe("Failure", () => {
+            it("close topic - 1", async () => {
+                const mutation = `
+                    mutation{
+                        closeTopic(id:"temp"){
+                            id
+                            topicId
+                        }
+                    }
+                `
+                const res = await client.mutate({
+                    mutation
+                })
+                const data = parse(res)
+                assert.deepStrictEqual(data.errors[0].message, "id가 ObjectId가 아닙니다.")
+            })
+
+            it("close topic - 2", async () => {
+                const mutation = `
+                    mutation{
+                        closeTopic(id:"aaaaaaaaaaaaaaaaaaaaaaaa"){
+                            id
+                            topicId
+                        }
+                    }
+                `
+                const res = await client.mutate({
+                    mutation
+                })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.closeTopic.length, 0)
             })
         })
     })

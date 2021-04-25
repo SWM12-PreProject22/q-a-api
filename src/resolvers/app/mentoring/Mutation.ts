@@ -23,7 +23,6 @@ export default {
         const result = await db.collection("topic").insertOne({
             title,
             description,
-            status: true,
             mentor,
             creater
         }).then(({ ops }) => ops[0])

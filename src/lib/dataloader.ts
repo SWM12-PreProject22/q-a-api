@@ -15,7 +15,7 @@ const batchLoadCommentFn = async (postIds: readonly ObjectId[]) => {
 
 const batchLoadUserFn = async (topicIds: readonly ObjectId[]) => {
     const db = await DB.get()
-    const comments = await db.collection("user").find({ qnaId: { $in: topicIds } }).toArray()
+    const comments = await db.collection("user").find({ topicId: { $in: topicIds } }).toArray()
     const table = new Map()
     const resultArr: User[][] = Array.from(Array(topicIds.length), () => [])
     topicIds.forEach((topicId: ObjectId, idx: number) => table.set(topicId + "", idx))
