@@ -2,6 +2,7 @@ import dotenv from "dotenv"
 dotenv.config()
 import env from "config/env"
 
+import { express as voyagerMiddleware } from "graphql-voyager/middleware"
 import { ApolloServer, ApolloError } from "apollo-server-express"
 import { readFileSync } from "fs"
 import { createServer } from "http"
@@ -18,8 +19,9 @@ const typeDefs = readFileSync("src/typeDefs.graphql", "utf-8")
 
 const app = express()
 app.use(bodyParserGraphQL())
-app.get("/graphql", expressPlayground({ endpoint: "/api" }))
-
+app.use("/graphql", expressPlayground({ endpoint: "/api" }))
+app.use("/voyager", voyagerMiddleware({ endpointUrl: "/api" }))
+app.use("/api-docs", express.static("docs"))
 const start = async () => {
     const db = await DB.get()
     const server = new ApolloServer({
@@ -47,7 +49,8 @@ const start = async () => {
                     return new ApolloError(`Query is too complex: ${actual}. Maximum allowed complexity: ${max}`);
                 },
             })
-        ]
+        ],
+        playground: false
     })
 
     server.applyMiddleware({

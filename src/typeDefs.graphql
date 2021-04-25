@@ -1,57 +1,92 @@
-scalar ObjectID
+"""Can be a 24 byte hex string, 12 byte binary string or a Number. """
+scalar ObjectID 
 
+"""GraphQL 쿼리입니다"""
 type Query{
-    # 테스트 쿼리입니다.
+
+    """테스트 쿼리입니다."""
     test: String!
-    # 해결안된 Q&A를 모든 불러오는 쿼리입니다.
+
+    """해결안된 Q&A를 모든 불러오는 쿼리입니다."""
     getOpenQNA: [QNA!]!
-    # 모든 Q&A를 불러오는 쿼리입니다.
+
+    """모든 Q&A를 불러오는 쿼리입니다."""
     getAllQNA: [QNA!]!
-    # 해결된 Q&A를 불러오는 쿼리입니다.
+
+    """해결된 Q&A를 불러오는 쿼리입니다."""
     getCloseQNA: [QNA!]!
-    # 본인이 작성한 Q&A를 모두 불러오는 쿼리입니다.
-    getMyQNA(id: String!): [QNA!]!
+
+    """본인이 작성한 Q&A를 모두 불러오는 쿼리입니다."""
+    getMyQNA(
+        """게시글 작성자의 id입니다."""
+        id: String!
+    ): [QNA!]!
 }
 
 type Mutation{
-    # Q&A 답변 작성 뮤테이션입니다.
+
+    """Q&A 답변 작성 뮤테이션입니다."""
     addComment(
+        """답변 작성자의 고유 id입니다."""
         id: String!, 
+
+        """부모 게시글의 id입니다."""
         qnaId: ObjectID!,
+
+        """댓글의 내용 입니다."""
         content: String!
+
     ): Boolean!
-    # Q&A 게시글을 닫는 뮤테이션입니다.
+
+    """Q&A 게시글을 닫는 뮤테이션입니다."""
     closeQNA(   
+        """게시글의 고유 id입니다."""
         qnaId: ObjectID!,
+
+        """게시글 작성자의 고유 id입니다."""
         id: String!
     ): Boolean!
-    # Q&A 게시글을 작성하는 뮤테이션입니다.
+
+    """Q&A 게시글을 작성하는 뮤테이션입니다."""
     addQNA(
+        """게시글 작성자의 고유 id입니다."""
         id: String!,
+
+        """게시글의 내용 입니다."""
         content: String!
     ): Boolean!
 }
 
+"""질문 게시글 타입입니다."""
 type QNA{
-    # 게시글 작성자의 고유 id입니다.
+    """게시글 작성자의 고유 id입니다."""
     id: String!
-    # 게시글의 내용 입니다.
+
+    """게시글의 내용 입니다."""
     content: String!
-    # 게시글의 고유 id입니다.
+
+    """게시글의 고유 id입니다."""
     qnaId: ObjectID!
-    # 게시글의 상태입니다.
+
+    """게시글의 상태입니다."""
     status: Boolean!
-    # 게시글의 답변입니다.
+
+    """게시글의 답변입니다."""
     comment: [Comment!]!
 }
 
+"""질문 게시글에 대한 답변 타입입니다."""
 type Comment{
-    # 부모 게시글의 id입니다.
+
+    """부모 게시글의 id입니다."""
     qnaId: ObjectID!
-    # 댓글 작성자의 고유 id입니다.
+
+    """댓글 작성자의 고유 id입니다."""
     id: String!
-    # 댓글의 내용 입니다.
+
+    """댓글의 내용 입니다."""
     content: String!
-    # 댓글의 고유 id입니다.
+
+    """댓글의 고유 id입니다."""
     commentId: ObjectID!
 }

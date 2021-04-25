@@ -3,9 +3,17 @@
 [![Build Status](https://travis-ci.com/SWM12-PreProject22/qna-api.svg?branch=master)](https://travis-ci.com/SWM12-PreProject22/qna-api)
 
 ## 문서
-Document & Schema: https://pukuba.ga/api
+`Document: ` <a href="https://pukuba.ga/api-docs">https://pukuba.ga/api-docs</a>
+Q&A API Server의 문서입니다.
 
-플레이 그라운드에서 오른쪽 중단에 DOCS / Schema 버튼을 눌러 각 문서를 확인할 수 있습니다.
+`Graph Relationships: ` <a href="https://pukuba.ga/voyager">https://pukuba.ga/voyager</a>
+GraphQL API 서버의 Graph 관계입니다.
+
+`Play Ground: ` <a href="https://pukuba.ga/graphql">https://pukuba.ga/graphql</a>
+쿼리, 뮤테이션을 직접 날릴수 있는 PlayGround 입니다.
+
+`API EndPoint: ` <a href="https://pukuba.ga/api">https://pukuba.ga/api</a>
+API 엔드 포인트 입니다.
 
 문서 보고 이해 안 되시는 부분, 모르시는 부분은 언제든지 연락주세요!
 
@@ -72,7 +80,5 @@ const callAPI = async() => {
 ```
 
 ## 기타
-
-- 지금 서버는 성능이 좋지 않아서 매우 느려요, 늦어도 1주 뒤까지 옮길 거에요.
 
 - 더 필요한 쿼리나, 도움이 필요한 부분이 있으면 언제든지 불러주세요!
