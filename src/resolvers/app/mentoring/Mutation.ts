@@ -70,15 +70,23 @@ export default {
             if (result !== null) {
                 throw new ApolloError("")
             }
-            await db.collection("user").insertOne({
+            if (await db.collection("topic").findOne({ _id: postId }) === null) {
+                throw new ApolloError("", "null")
+            }
+            return await db.collection("user").insertOne({
                 topicId: postId,
                 id: applicant
-            })
+            }).then(({ result }) => result.n === 1 ? true : false)
         } catch (err) {
             if ("extensions" in err) {
-                throw new ApolloError("이미 신청한 유저입니다.")
+                if (err.extensions.code === "null") {
+                    throw new ApolloError("해당 게시글이 존재하지 않습니다.")
+                }
+                else {
+                    throw new ApolloError("이미 신청한 유저입니다.")
+                }
             }
-            throw new ApolloError("qnaId는 ObjectId가 아닙니다.")
+            throw new ApolloError("topicId가 ObjectId가 아닙니다.")
         }
 
     }

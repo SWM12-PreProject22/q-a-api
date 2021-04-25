@@ -10,7 +10,7 @@ import {
     comment2A,
     comment2B,
     comment2C
-} from "test/mock"
+} from "test/qna/mock"
 import { Comment } from "config/types"
 
 describe(`Query Test`, () => {
