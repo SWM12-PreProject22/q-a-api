@@ -22,10 +22,10 @@ type Query{
         id: String!
     ): [QNA!]!
 
-    """오픈되어있는 멘토링 모집글 모두 불러오는 쿼리입니다."
+    """오픈되어있는 멘토링 모집글 모두 불러오는 쿼리입니다."""
     getAllTopic: [Topic!]!
 
-    """멘토링 모집 게시글의 id를 가지고 상세 정보를 가져오는 쿼리입니다."
+    """멘토링 모집 게시글의 id를 가지고 상세 정보를 가져오는 쿼리입니다."""
     getTopicById(
         """멘토링 게시글의 id입니다."""
         id: ObjectID!
@@ -74,7 +74,7 @@ type Mutation{
     """멘토링 모집 게시글의 상태를 변경"""
     closeTopic(
         """게시글의 고유 id입니다."""
-        id:ObjectID!
+        id: ObjectID!
     ): [User!]!
 
     """멘토링 모집 게시글을 작성"""
@@ -89,13 +89,13 @@ type Mutation{
         description: String!,
 
         """게시글 작성자의 id"""
-        creater: String!,
+        creater: String!
     ): Boolean!
 
     """멘토링 신청 쿼리"""
     signTopic(
         """멘토링 신청 게시글의 id"""
-        topicId: ObjectId!,
+        topicId: ObjectID!,
 
         """신청자의 고유 id"""
         applicant: String!
@@ -112,8 +112,6 @@ type QNA{
 
     """게시글의 고유 id입니다."""
     qnaId: ObjectID!
-
-    date: DateTime
 
     """게시글의 상태입니다."""
     status: Boolean!
@@ -153,7 +151,7 @@ type Topic{
     status: Boolean!
 
     """신청한 유저들"""
-    user: [User!]!
+    users: [User!]!
 
     """멘토링 모집글 게시글의 고유 id"""
     id: ObjectID!
@@ -165,5 +163,5 @@ type User{
     id: String!
 
     """유저에 신청한 토픽id"""
-    topicId: ObjectId!
+    topicId: ObjectID!
 }

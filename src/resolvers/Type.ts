@@ -9,6 +9,7 @@ export default {
         commentId: (parent: Comment) => parent._id + ""
     },
     Topic: {
-        ids: (parent: Topic, args: void, { loaders }: { loaders: Loaders }) => loaders.usersLoader.load(parent._id)
+        id: (parent: Topic) => parent._id + "",
+        users: (parent: Topic, args: void, { loaders }: { loaders: Loaders }) => loaders.usersLoader.load(parent._id)
     }
 }
