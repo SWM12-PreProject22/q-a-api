@@ -100,6 +100,16 @@
                 QNA
             </a>
         </li>
+        <li  title="Topic">
+            <a href="topic.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Topic
+            </a>
+        </li>
+        <li  title="User">
+            <a href="user.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                User
+            </a>
+        </li>
         <li  title="__Directive">
             <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __Directive
@@ -172,7 +182,8 @@
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
         <h1 class="slds-text-heading--large">Query</h1>
-        <div class="slds-text-body--regular"></div>
+        <div class="slds-text-body--regular"><p>GraphQL 쿼리입니다</p>
+</div>
     </div>
 </section>
 <section>
@@ -183,7 +194,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line">#   테스트 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">test</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   해결안된 Q&A를 모든 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getOpenQNA</span>: [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   모든 Q&A를 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getAllQNA</span>: [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   해결된 Q&A를 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getCloseQNA</span>: [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   본인이 작성한 Q&A를 모두 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: 게시글 작성자의 id입니다.</span></span></li><li><span class="tab"><span class="meta">getMyQNA</span>(<span class="meta">id</span>: <a class="support type" href="string.doc.html">String</a>!): [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line">#   테스트 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">test</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   해결안된 Q&A를 모든 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getOpenQNA</span>: [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   모든 Q&A를 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getAllQNA</span>: [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   해결된 Q&A를 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getCloseQNA</span>: [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   본인이 작성한 Q&A를 모두 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: 게시글 작성자의 id입니다.</span></span></li><li><span class="tab"><span class="meta">getMyQNA</span>(<span class="meta">id</span>: <a class="support type" href="string.doc.html">String</a>!): [<a class="support type" href="qna.doc.html">QNA</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   오픈되어있는 멘토링 모집글 모두 불러오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="meta">getAllTopic</span>: [<a class="support type" href="topic.doc.html">Topic</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집 게시글의 id를 가지고 상세 정보를 가져오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: 멘토링 게시글의 id입니다.</span></span></li><li><span class="tab"><span class="meta">getTopicById</span>(<span class="meta">id</span>: <a class="support type" href="objectid.doc.html">ObjectID</a>!): <a class="support type" href="topic.doc.html">Topic</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   어떠한 유저가 가입한 topic을 가져오는 쿼리입니다.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: 유저의 고유 id입니다.</span></span></li><li><span class="tab"><span class="meta">getTopicByUserId</span>(<span class="meta">id</span>: <a class="support type" href="string.doc.html">String</a>!): [<a class="support type" href="topic.doc.html">Topic</a>!]! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>

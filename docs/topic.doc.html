@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>ObjectID</title>
+    <title>Topic</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -50,7 +50,7 @@
                 Int
             </a>
         </li>
-        <li class="slds-is-active" title="ObjectID">
+        <li  title="ObjectID">
             <a href="objectid.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 ObjectID
             </a>
@@ -100,7 +100,7 @@
                 QNA
             </a>
         </li>
-        <li  title="Topic">
+        <li class="slds-is-active" title="Topic">
             <a href="topic.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Topic
             </a>
@@ -180,9 +180,9 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">SCALAR</p>
-        <h1 class="slds-text-heading--large">ObjectID</h1>
-        <div class="slds-text-body--regular"><p>Can be a 24 byte hex string, 12 byte binary string or a Number. </p>
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">Topic</h1>
+        <div class="slds-text-body--regular"><p>멘토링 모집글 대한 타입입니다.</p>
 </div>
     </div>
 </section>
@@ -194,7 +194,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">scalar</span> <span class="identifier">ObjectID</span></li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Topic</span> {</li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집글 제목입니다.</span></span></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토님 성함입니다.</span></span></li><li><span class="tab"><span class="meta">mentor</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   설명글 입니다.</span></span></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   신청한 유저들</span></span></li><li><span class="tab"><span class="meta">users</span>: [<a class="support type" href="user.doc.html">User</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   게시글을 작선한 사람</span></span></li><li><span class="tab"><span class="meta">creater</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집글 게시글의 고유 id</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="objectid.doc.html">ObjectID</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -205,7 +205,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="comment.doc.html" title="Comment - 질문 게시글에 대한 답변 타입입니다.">Comment<em>질문 게시글에 대한 답변 타입입니다.</em></a><li><li><a href="mutation.doc.html" title="Mutation - ">Mutation<em></em></a><li><li><a href="qna.doc.html" title="QNA - 질문 게시글 타입입니다.">QNA<em>질문 게시글 타입입니다.</em></a><li><li><a href="query.doc.html" title="Query - GraphQL 쿼리입니다">Query<em>GraphQL 쿼리입니다</em></a><li><li><a href="topic.doc.html" title="Topic - 멘토링 모집글 대한 타입입니다.">Topic<em>멘토링 모집글 대한 타입입니다.</em></a><li><li><a href="user.doc.html" title="User - 유저 타입">User<em>유저 타입</em></a><li></ul>
+        <ul class="require-by"><li><a href="query.doc.html" title="Query - GraphQL 쿼리입니다">Query<em>GraphQL 쿼리입니다</em></a><li></ul>
     </div>
 </section>
 <footer>
