@@ -1,2 +1,2 @@
 export { parse } from "lib/json"
-export { commentsLoader } from "lib/dataloader"
+export { commentsLoader, usersLoader } from "lib/dataloader"

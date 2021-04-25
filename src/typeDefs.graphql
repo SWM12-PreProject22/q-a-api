@@ -123,7 +123,7 @@ type Comment{
 """멘토링 모집글 대한 타입입니다."""
 type Topic{
     """멘토링 모집글 제목입니다."""
-    title: string!
+    title: String!
 
     """멘토님 성함입니다."""
     mentor: String!
@@ -135,8 +135,12 @@ type Topic{
     status: Boolean!
 
     """신청한 사람들의 id"""
-    ids: [String!]!
+    ids: [User!]!
 
     """멘토링 모집글 게시글의 고유 id"""
-    id: OBjectID!
+    id: ObjectID!
+}
+
+type User{
+    id: String!
 }

@@ -1,4 +1,4 @@
-import { QNA, Comment, Loaders } from "config/types"
+import { QNA, Comment, Loaders, Topic } from "config/types"
 
 export default {
     QNA: {
@@ -7,5 +7,8 @@ export default {
     },
     Comment: {
         commentId: (parent: Comment) => parent._id + ""
+    },
+    Topic: {
+        ids: (parent: Topic, args: void, { loaders }: { loaders: Loaders }) => loaders.usersLoader.load(parent._id)
     }
 }
