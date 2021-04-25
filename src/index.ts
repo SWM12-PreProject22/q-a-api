@@ -24,6 +24,9 @@ app.use("/voyager", voyagerMiddleware({ endpointUrl: "/api" }))
 app.use("/api-docs", express.static("docs"))
 const start = async () => {
     const db = await DB.get()
+    if (db === null) {
+        process.exit(0)
+    }
     const server = new ApolloServer({
         typeDefs,
         resolvers,
@@ -60,8 +63,8 @@ const start = async () => {
 
     const httpServer = createServer(app)
     httpServer.timeout = 5000
-    httpServer.listen({ port: env.PORT || 3000 }, () => {
-        console.log(`GraphQL Server Running at http://localhost:${env.PORT || 3000}/api`)
+    httpServer.listen({ port: env.PORT }, () => {
+        console.log(`GraphQL Server Running at http://localhost:${env.PORT}/api`)
     })
 }
 

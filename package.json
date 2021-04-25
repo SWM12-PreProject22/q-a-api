@@ -15,7 +15,8 @@
     "url": "git+https://github.com/SWM12-PreProject22/qna-api.git"
   },
   "keywords": [
-    "boilerplate"
+    "graphql",
+    "apollo-server"
   ],
   "author": "pukuba",
   "license": "MIT",

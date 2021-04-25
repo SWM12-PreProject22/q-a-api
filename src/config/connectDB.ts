@@ -18,7 +18,7 @@ const connectDB = () => {
             return _db
         } catch (e) {
             console.log(e)
-            return e
+            return null
         }
     }
 
