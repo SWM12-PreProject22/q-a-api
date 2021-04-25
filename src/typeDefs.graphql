@@ -66,7 +66,7 @@ type Mutation{
     closeTopic(
         """게시글의 고유 id입니다."""
         id:ObjectID!
-    ): [String!]!
+    ): [User!]!
 
     """멘토링 모집 게시글을 작성"""
     addTopic(
@@ -141,6 +141,11 @@ type Topic{
     id: ObjectID!
 }
 
+"""유저 타입"""
 type User{
+    """유저의 고유 id"""
     id: String!
+    
+    """유저에 신청한 토픽id"""
+    topicId: ObjectId!
 }
