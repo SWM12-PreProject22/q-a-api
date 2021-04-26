@@ -65,6 +65,26 @@ describe(`Mutation Test`, () => {
                 const data = parse(res)
                 assert.deepStrictEqual(data.data.addTopic, true)
             })
+
+            it("Create Topic - 4", async () => {
+                const mutation = `
+                    mutation{
+                        addTopic(
+                            title:"GQL을 RESTful API로 10분만에 뽑는법",
+                            description:"ㅈㄱㄴ",
+                            mentor:"papago",
+                            creater:"1234321",
+                            count:5
+                        )
+                    }
+                `
+
+                const res = await client.mutate({
+                    mutation
+                })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.addTopic, true)
+            })
         })
         after(async () => {
             const db = await DB.get()
@@ -72,6 +92,52 @@ describe(`Mutation Test`, () => {
             for (const topic of reuslt) {
                 topicIds.push(topic._id + "")
             }
+        })
+    })
+
+    describe("cancle Topic", () => {
+        describe("Success", () => {
+            it("cancle topic - 1", async () => {
+                const mutation = `
+                    mutation{
+                        cancleTopic(
+                            topicId:"${topicIds[topicIds.length - 1]}",
+                            applicant:"1234321"
+                        )
+                    }
+                `
+                const res = await client.mutate({ mutation })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.cancleTopic, true)
+            })
+        })
+        describe("Failure", () => {
+            it("cancle topic - 1", async () => {
+                const mutation = `
+                    mutation{
+                        cancleTopic(
+                            topicId:"123412341234123412341234",
+                            applicant:"1234321"
+                        )
+                    }
+                `
+                const res = await client.mutate({ mutation })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.cancleTopic, false)
+            })
+            it("cancle topic - 2", async () => {
+                const mutation = `
+                    mutation{
+                        cancleTopic(
+                            topicId:"123432",
+                            applicant:"1234321"
+                        )
+                    }
+                `
+                const res = await client.mutate({ mutation })
+                const data = parse(res)
+                assert.deepStrictEqual(data.errors[0].message, "topicId가 ObjectId가 아닙니다.")
+            })
         })
     })
 

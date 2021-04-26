@@ -125,7 +125,7 @@ export default {
                 id: applicant
             }).then(({ result }) => result.n === 1 ? true : false)
         } catch {
-            throw new ApolloError("TopicId가 ObjectId가 아닙니다.")
+            throw new ApolloError("topicId가 ObjectId가 아닙니다.")
         }
     }
 }
