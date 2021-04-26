@@ -100,7 +100,9 @@ type Mutation{
         description: String!,
 
         """게시글 작성자의 id"""
-        creater: String!
+        creater: String!,
+
+        count: Int!
     ): Boolean!
 
     """멘토링 신청 쿼리"""
@@ -169,6 +171,9 @@ type Topic{
 
     """멘토링 모집글 게시글의 고유 id"""
     id: ObjectID!
+
+    """해당 게시글의 인원 제한입니다."""
+    count: Int!
 }
 
 """유저 타입"""

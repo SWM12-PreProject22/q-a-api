@@ -8,12 +8,14 @@ export default {
             title,
             mentor,
             description,
-            creater
+            creater,
+            count
         }: {
             title: string,
             mentor: string,
             description: string,
-            creater: string
+            creater: string,
+            count: number
         }, {
             db,
             token
@@ -29,7 +31,8 @@ export default {
             title,
             description,
             mentor,
-            creater
+            creater,
+            count
         }).then(({ ops }) => ops[0])
 
         return await db.collection("user").insertOne({

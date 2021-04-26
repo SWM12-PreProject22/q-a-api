@@ -15,7 +15,8 @@ describe(`Mutation Test`, () => {
                             title:"MSA 200% 활용하기",
                             description:"MSA에 관해서 같이 멘토링 듣고싶은분들 모여요!",
                             mentor:"남승원",
-                            creater:"213213521312"
+                            creater:"213213521312",
+                            count:5
                         )
                     }
                 `
@@ -33,7 +34,8 @@ describe(`Mutation Test`, () => {
                             title:"테스팅 200% 하는법!",
                             description:"테스팅에 대해서 멘토링 듣고싶은분들 손!",
                             mentor:"pukuba",
-                            creater:"213213521315"
+                            creater:"213213521315",
+                            count:5
                         )
                     }
                 `
@@ -51,7 +53,8 @@ describe(`Mutation Test`, () => {
                             title:"문제해결능력과 개발의 연관성?",
                             description:"문제해결능력과 개발의 연관성에 대해서 알고싶으신분?",
                             mentor:"kkzkk1234",
-                            creater:"213213521317"
+                            creater:"213213521317",
+                            count:5
                         )
                     }
                 `
