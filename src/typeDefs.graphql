@@ -24,6 +24,12 @@ type Query{
         id: String!
     ): [QNA!]!
 
+    """QNA게시글의 id로 QNA게시글을 가져옵니다."""
+    getIdByQNA:(
+        """게시글의 id입니다"""
+        qnaId: ObjectID!
+    ): QNA!
+
     """특정 시간을 기준으로 뒤에 작성된 게시글을 가져옵니다."""
     getDateByQNA(
         """
