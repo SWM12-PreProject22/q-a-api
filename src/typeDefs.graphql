@@ -25,7 +25,7 @@ type Query{
     ): [QNA!]!
 
     """QNA게시글의 id로 QNA게시글을 가져옵니다."""
-    getIdByQNA:(
+    getIdByQNA(
         """게시글의 id입니다"""
         qnaId: ObjectID!
     ): QNA!
@@ -38,6 +38,9 @@ type Query{
         """
         date: Float!
     ): [QNA!]!
+
+    """QNA 답변 랭킹을 가져옵니다."""
+    getAnswererRank: [Answerer!]!
 
     """오픈되어있는 멘토링 모집글 모두 불러오는 쿼리입니다."""
     getAllTopic: [Topic!]!
@@ -203,4 +206,13 @@ type User{
 
     """유저에 신청한 토픽id"""
     topicId: ObjectID!
+}
+
+"""채택자 타입"""
+type Answerer{
+    """유저의 고유 id입니다."""
+    id: String!
+
+    """해당 유저가 얼마나 채택되었는지를 나타내는 카운트입니다."""
+    cnt: Int!
 }

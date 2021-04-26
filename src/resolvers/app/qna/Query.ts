@@ -15,5 +15,6 @@ export default {
         } catch {
             throw new ApolloError("qnaId가 ObjectId가 아닙니다.")
         }
-    }
+    },
+    getAnswererRank: async (parent: void, args: void, { db }: { db: Db }) => await db.collection("rank").find().sort({ cnt: -1 }).toArray()
 }
