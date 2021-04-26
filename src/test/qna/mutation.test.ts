@@ -57,7 +57,8 @@ describe(`Mutation Test`, () => {
                     mutation{
                         closeQNA(
                             qnaId:"${user._id}",
-                            id:"${qna1Result.id}"
+                            id:"${qna1Result.id}",
+                            answererId:"${comment1A.id}"
                         )
                     }
                 `
@@ -181,7 +182,8 @@ describe(`Mutation Test`, () => {
                 mutation{
                     closeQNA(
                         qnaId:"FailureCase",
-                        id:"kkzkk1234"
+                        id:"kkzkk1234",
+                        answererId:"pukuba"
                     )
                 }
             `
@@ -196,7 +198,8 @@ describe(`Mutation Test`, () => {
                 mutation{
                     closeQNA(
                         qnaId:"Failure-Case",
-                        id:"kkzkk1234"
+                        id:"kkzkk1234",
+                        answererId:"hawawa"
                     )
                 }
             `

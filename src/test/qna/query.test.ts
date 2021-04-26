@@ -18,6 +18,7 @@ describe(`Query Test`, () => {
         const db: Db = await DB.get()
         await db.collection("post").deleteMany({})
         await db.collection("comment").deleteMany({})
+        await db.collection("rank").deleteMany({})
     })
     describe(`Success`, () => {
         describe(`QNA - 1`, () => {
@@ -125,6 +126,42 @@ describe(`Query Test`, () => {
                 })
                 const data = parse(res)
                 assert.deepStrictEqual(data.data.getMyQNA[0].id, qna1A.id)
+            })
+
+            it(`get User Ranking`, async () => {
+                const query = `
+                    query{
+                        getAnswererRank{
+                            id
+                            cnt
+                        }
+                    }
+                `
+                const res = await client.query({ query })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.getAnswererRank[0].id, comment1A.id)
+                assert.deepStrictEqual(data.data.getAnswererRank[0].cnt, 1)
+            })
+
+            it(`get Id By QNA`, async () => {
+                const db: Db = await DB.get()
+                const post = await db.collection("post").findOne({ content: qna2A.content })
+                const query = `
+                    query{
+                        getIdByQNA(
+                            qnaId:"${post._id}"
+                        ){
+                            content
+                            id
+                            status
+                        }
+                    }
+                `
+                const res = await client.query({ query })
+                const data = parse(res)
+                assert.deepStrictEqual(data.data.getIdByQNA.content, "GraphQL 장점이 뭔가요?")
+                assert.deepStrictEqual(data.data.getIdByQNA.id, "pukuba")
+                assert.deepStrictEqual(data.data.getIdByQNA.status, true)
             })
         })
     })
