@@ -105,6 +105,27 @@ export default {
             }
             throw new ApolloError("topicId가 ObjectId가 아닙니다.")
         }
+    },
 
+    cancleTopic: async (
+        parent: void, {
+            topicId,
+            applicant
+        }: {
+            topicId: string,
+            applicant: string
+        }, {
+            db
+        }: {
+            db: Db
+        }) => {
+        try {
+            return await db.collection("user").deleteOne({
+                topicId: new ObjectId(topicId),
+                id: applicant
+            }).then(({ result }) => result.n === 1 ? true : false)
+        } catch {
+            throw new ApolloError("TopicId가 ObjectId가 아닙니다.")
+        }
     }
 }
