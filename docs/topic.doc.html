@@ -100,6 +100,11 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
+        <li  title="Answerer">
+            <a href="answerer.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Answerer
+            </a>
+        </li>
         <li  title="Comment">
             <a href="comment.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Comment
@@ -204,7 +209,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Topic</span> {</li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집글 제목입니다.</span></span></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토님 성함입니다.</span></span></li><li><span class="tab"><span class="meta">mentor</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   설명글 입니다.</span></span></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   신청한 유저들</span></span></li><li><span class="tab"><span class="meta">users</span>: [<a class="support type" href="user.doc.html">User</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   게시글을 작선한 사람</span></span></li><li><span class="tab"><span class="meta">creater</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집글 게시글의 고유 id</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="objectid.doc.html">ObjectID</a>! </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Topic</span> {</li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집글 제목입니다.</span></span></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토님 성함입니다.</span></span></li><li><span class="tab"><span class="meta">mentor</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   설명글 입니다.</span></span></li><li><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   신청한 유저들</span></span></li><li><span class="tab"><span class="meta">users</span>: [<a class="support type" href="user.doc.html">User</a>!]! </span></li><li></li><li><span class="tab"><span class="comment line">#   게시글을 작선한 사람</span></span></li><li><span class="tab"><span class="meta">creater</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   멘토링 모집글 게시글의 고유 id</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="objectid.doc.html">ObjectID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   해당 게시글의 인원 제한입니다.</span></span></li><li><span class="tab"><span class="meta">count</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
