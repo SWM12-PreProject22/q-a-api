@@ -115,10 +115,15 @@ export default {
             topicId: string,
             applicant: string
         }, {
-            db
+            db,
+            token
         }: {
-            db: Db
+            db: Db,
+            token: string
         }) => {
+        if (token !== env.token) {
+            throw new ApolloError("API KEY가 유효하지 않습니다.")
+        }
         try {
             return await db.collection("user").deleteOne({
                 topicId: new ObjectId(topicId),

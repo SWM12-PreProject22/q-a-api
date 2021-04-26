@@ -71,6 +71,9 @@ type Mutation{
 
         """게시글 작성자의 고유 id입니다."""
         id: String!
+
+        """채택을 하실 사람의 고유 id입니다."""
+        answererId: String!
     ): Boolean!
 
     """Q&A 게시글을 작성하는 뮤테이션입니다."""
@@ -81,6 +84,8 @@ type Mutation{
         """게시글의 내용 입니다."""
         content: String!
     ): Boolean!
+
+    
 
     """멘토링 모집 게시글의 상태를 변경"""
     closeTopic(

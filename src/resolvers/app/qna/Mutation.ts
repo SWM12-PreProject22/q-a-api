@@ -71,10 +71,12 @@ export default {
     closeQNA: async (
         parent: void, {
             id,
-            qnaId
+            qnaId,
+            answererId
         }: {
             id: string,
-            qnaId: ObjectId
+            qnaId: ObjectId,
+            answererId: string
         }, {
             db,
             token
@@ -88,11 +90,17 @@ export default {
         }
         try {
             const _id = new ObjectId(qnaId)
-            return await db.collection("post").updateOne({
+            const result = await db.collection("post").updateOne({
                 _id,
                 id,
                 status: true
             }, { $set: { status: false } }).then(({ result }) => result.n === 1 ? true : false)
+            if (result === true) {
+                await db.collection("rank").updateOne({
+                    id: answererId
+                }, { $inc: { cnt: 1 } }, { upsert: true })
+            }
+            return result
         } catch {
             throw new ApolloError("qnaId가 ObjectId가 아닙니다.")
         }
