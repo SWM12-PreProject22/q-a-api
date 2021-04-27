@@ -45,10 +45,12 @@ export default {
     addQNA: async (
         parent: void, {
             id,
-            content
+            content,
+            title
         }: {
             id: string,
-            content: string
+            content: string,
+            title: string
         }, {
             db,
             token
@@ -64,6 +66,7 @@ export default {
             id,
             content,
             status: true,
+            title,
             date: new Date().valueOf()
         }).then(({ result }) => result.n === 1 ? true : false)
     },

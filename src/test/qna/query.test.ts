@@ -154,11 +154,13 @@ describe(`Query Test`, () => {
                             content
                             id
                             status
+                            title
                         }
                     }
                 `
                 const res = await client.query({ query })
                 const data = parse(res)
+                assert.deepStrictEqual(data.data.getIdByQNA.title, "포스트2")
                 assert.deepStrictEqual(data.data.getIdByQNA.content, "GraphQL 장점이 뭔가요?")
                 assert.deepStrictEqual(data.data.getIdByQNA.id, "pukuba")
                 assert.deepStrictEqual(data.data.getIdByQNA.status, true)

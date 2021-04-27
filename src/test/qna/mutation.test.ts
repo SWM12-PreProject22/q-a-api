@@ -20,7 +20,8 @@ describe(`Mutation Test`, () => {
                     mutation{
                         addQNA(
                             id:"${qna1A.id}",
-                            content:"${qna1A.content}"
+                            content:"${qna1A.content}",
+                            title:"포스트1"
                         )
                     }
                 `
@@ -76,7 +77,8 @@ describe(`Mutation Test`, () => {
                     mutation{
                         addQNA(
                             id:"${qna2A.id}",
-                            content:"${qna2A.content}"
+                            content:"${qna2A.content}",
+                            title:"포스트2"
                         )
                     }
                 `

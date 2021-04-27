@@ -91,7 +91,10 @@ type Mutation{
         id: String!,
 
         """게시글의 내용 입니다."""
-        content: String!
+        content: String!,
+
+        """게시글의 제목 입니다."""
+        title: String!
     ): Boolean!
 
     
@@ -140,6 +143,9 @@ type Mutation{
 
 """질문 게시글 타입입니다."""
 type QNA{
+    """질문 게시글의 제목입니다."""
+    title: String!
+
     """게시글 작성자의 고유 id입니다."""
     id: String!
 
