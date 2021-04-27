@@ -1,5 +1,6 @@
 .DS_Store
-
+cert.crt
+private.key
 
 # Logs
 logs
