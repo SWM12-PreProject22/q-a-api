@@ -12,7 +12,7 @@ GraphQL API 서버의 Graph 관계입니다.
 `Play Ground:` <a href="https://pukuba.ga/graphql">https://pukuba.ga/graphql</a>
 쿼리, 뮤테이션을 직접 날릴수 있는 PlayGround 입니다.
 
-`API EndPoint:` <a href="https://pukuba.ga/api">https://pukuba.ga/api</a>
+`API EndPoint:` <a href="https://vvhtzbmdvztw6581595.cdn.ntruss.com/api">https://vvhtzbmdvztw6581595.cdn.ntruss.com/api</a>
 API 엔드 포인트 입니다.
 
 문서 보고 이해 안 되시는 부분, 모르시는 부분은 언제든지 연락주세요!

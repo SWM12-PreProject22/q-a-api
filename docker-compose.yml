@@ -14,10 +14,7 @@ services:
     container_name: proxy
     ports:
       - "80:80"
-      - "443:443"
     volumes:
-      - ./proxy/cert.crt:/etc/nginx/cert.crt
-      - ./proxy/private.key:/etc/nginx/private.key
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
 
     restart: "unless-stopped"
