@@ -44,7 +44,7 @@ describe(`Query Test`, () => {
                         id
                         title
                         mentor
-                        creater
+                        creator
                     }
                 }
             `
@@ -54,7 +54,7 @@ describe(`Query Test`, () => {
             const data = parse(res)
             assert.deepStrictEqual(data.data.getTopicById.title, "MSA 200% 활용하기")
             assert.deepStrictEqual(data.data.getTopicById.mentor, "남승원")
-            assert.deepStrictEqual(data.data.getTopicById.creater, "213213521312")
+            assert.deepStrictEqual(data.data.getTopicById.creator, "213213521312")
         })
 
         it("getTopicByUserId", async () => {
@@ -88,7 +88,7 @@ describe(`Query Test`, () => {
                         id
                         title
                         mentor
-                        creater
+                        creator
                     }
                 }
             `
@@ -107,7 +107,7 @@ describe(`Query Test`, () => {
                         id
                         title
                         mentor
-                        creater
+                        creator
                     }
                 }
             `

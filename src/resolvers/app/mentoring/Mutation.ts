@@ -8,13 +8,13 @@ export default {
             title,
             mentor,
             description,
-            creater,
+            creator,
             count
         }: {
             title: string,
             mentor: string,
             description: string,
-            creater: string,
+            creator: string,
             count: number
         }, {
             db,
@@ -31,12 +31,12 @@ export default {
             title,
             description,
             mentor,
-            creater,
+            creator,
             count
         }).then(({ ops }) => ops[0])
 
         return await db.collection("user").insertOne({
-            id: creater,
+            id: creator,
             topicId: result._id
         }).then(({ result }) => result.n === 1 ? true : false)
     },
@@ -47,14 +47,11 @@ export default {
         }
         try {
             const _id = new ObjectId(id)
-            const users = await db.collection("user").find({ topicId: _id }).toArray()
-            await db.collection("topic").deleteMany({
-                _id
-            })
-            await db.collection("user").deleteMany({
-                topicId: _id
-            })
-            return users
+            await Promise.all([
+                db.collection("topic").deleteMany({ _id }),
+                db.collection("user").deleteMany({ topicId: _id })
+            ])
+            return true
         } catch {
             throw new ApolloError("id가 ObjectId가 아닙니다.")
         }
@@ -107,7 +104,7 @@ export default {
         }
     },
 
-    cancleTopic: async (
+    cancelTopic: async (
         parent: void, {
             topicId,
             applicant

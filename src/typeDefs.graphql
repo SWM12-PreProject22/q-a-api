@@ -103,7 +103,7 @@ type Mutation{
     closeTopic(
         """게시글의 고유 id입니다."""
         id: ObjectID!
-    ): [User!]!
+    ): Boolean!
 
     """멘토링 모집 게시글을 작성"""
     addTopic(
@@ -117,7 +117,7 @@ type Mutation{
         description: String!,
 
         """게시글 작성자의 id"""
-        creater: String!,
+        creator: String!,
 
         count: Int!
     ): Boolean!
@@ -132,7 +132,7 @@ type Mutation{
     ): Boolean!
 
     """멘토링 신청을 취소합니다"""
-    cancleTopic(
+    cancelTopic(
         """멘토링 게시글의 id입니다."""
         topicId: ObjectID!
 
@@ -196,7 +196,7 @@ type Topic{
     users: [User!]!
 
     """게시글을 작선한 사람"""
-    creater: String!
+    creator: String!
 
     """멘토링 모집글 게시글의 고유 id"""
     id: ObjectID!
