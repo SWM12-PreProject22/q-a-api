@@ -8,13 +8,13 @@ export default {
             title,
             mentor,
             description,
-            creater,
+            creator,
             count
         }: {
             title: string,
             mentor: string,
             description: string,
-            creater: string,
+            creator: string,
             count: number
         }, {
             db,
@@ -31,12 +31,12 @@ export default {
             title,
             description,
             mentor,
-            creater,
+            creator,
             count
         }).then(({ ops }) => ops[0])
 
         return await db.collection("user").insertOne({
-            id: creater,
+            id: creator,
             topicId: result._id
         }).then(({ result }) => result.n === 1 ? true : false)
     },

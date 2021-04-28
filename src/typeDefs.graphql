@@ -117,7 +117,7 @@ type Mutation{
         description: String!,
 
         """게시글 작성자의 id"""
-        creater: String!,
+        creator: String!,
 
         count: Int!
     ): Boolean!
@@ -196,7 +196,7 @@ type Topic{
     users: [User!]!
 
     """게시글을 작선한 사람"""
-    creater: String!
+    creator: String!
 
     """멘토링 모집글 게시글의 고유 id"""
     id: ObjectID!
