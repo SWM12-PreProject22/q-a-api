@@ -95,12 +95,12 @@ describe(`Mutation Test`, () => {
         })
     })
 
-    describe("cancle Topic", () => {
+    describe("cancel Topic", () => {
         describe("Success", () => {
-            it("cancle topic - 1", async () => {
+            it("cancel topic - 1", async () => {
                 const mutation = `
                     mutation{
-                        cancleTopic(
+                        cancelTopic(
                             topicId:"${topicIds[topicIds.length - 1]}",
                             applicant:"1234321"
                         )
@@ -108,14 +108,14 @@ describe(`Mutation Test`, () => {
                 `
                 const res = await client.mutate({ mutation })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.cancleTopic, true)
+                assert.deepStrictEqual(data.data.cancelTopic, true)
             })
         })
         describe("Failure", () => {
-            it("cancle topic - 1", async () => {
+            it("cancel topic - 1", async () => {
                 const mutation = `
                     mutation{
-                        cancleTopic(
+                        cancelTopic(
                             topicId:"123412341234123412341234",
                             applicant:"1234321"
                         )
@@ -123,12 +123,12 @@ describe(`Mutation Test`, () => {
                 `
                 const res = await client.mutate({ mutation })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.cancleTopic, false)
+                assert.deepStrictEqual(data.data.cancelTopic, false)
             })
-            it("cancle topic - 2", async () => {
+            it("cancel topic - 2", async () => {
                 const mutation = `
                     mutation{
-                        cancleTopic(
+                        cancelTopic(
                             topicId:"123432",
                             applicant:"1234321"
                         )

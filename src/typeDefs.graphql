@@ -132,7 +132,7 @@ type Mutation{
     ): Boolean!
 
     """멘토링 신청을 취소합니다"""
-    cancleTopic(
+    cancelTopic(
         """멘토링 게시글의 id입니다."""
         topicId: ObjectID!
 

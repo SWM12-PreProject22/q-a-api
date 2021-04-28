@@ -107,7 +107,7 @@ export default {
         }
     },
 
-    cancleTopic: async (
+    cancelTopic: async (
         parent: void, {
             topicId,
             applicant
