@@ -295,10 +295,7 @@ describe(`Mutation Test`, () => {
             it("close topic - 1", async () => {
                 const mutation = `
                     mutation{
-                        closeTopic(id:"temp"){
-                            id
-                            topicId
-                        }
+                        closeTopic(id:"temp")
                     }
                 `
                 const res = await client.mutate({
@@ -311,17 +308,14 @@ describe(`Mutation Test`, () => {
             it("close topic - 2", async () => {
                 const mutation = `
                     mutation{
-                        closeTopic(id:"aaaaaaaaaaaaaaaaaaaaaaaa"){
-                            id
-                            topicId
-                        }
+                        closeTopic(id:"aaaaaaaaaaaaaaaaaaaaaaaa")
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.closeTopic.length, 0)
+                assert.deepStrictEqual(data.data.closeTopic, true)
             })
         })
     })

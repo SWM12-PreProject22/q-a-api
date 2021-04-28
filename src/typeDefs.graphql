@@ -103,7 +103,7 @@ type Mutation{
     closeTopic(
         """게시글의 고유 id입니다."""
         id: ObjectID!
-    ): [User!]!
+    ): Boolean!
 
     """멘토링 모집 게시글을 작성"""
     addTopic(

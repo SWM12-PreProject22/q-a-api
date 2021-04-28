@@ -47,14 +47,11 @@ export default {
         }
         try {
             const _id = new ObjectId(id)
-            const users = await db.collection("user").find({ topicId: _id }).toArray()
-            await db.collection("topic").deleteMany({
-                _id
-            })
-            await db.collection("user").deleteMany({
-                topicId: _id
-            })
-            return users
+            await Promise.all([
+                db.collection("topic").deleteMany({ _id }),
+                db.collection("user").deleteMany({ topicId: _id })
+            ])
+            return true
         } catch {
             throw new ApolloError("id가 ObjectId가 아닙니다.")
         }
