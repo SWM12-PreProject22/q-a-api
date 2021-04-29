@@ -129,7 +129,7 @@ type Mutation{
 
         """신청자의 고유 id"""
         applicant: String!
-    ): Boolean!
+    ): Topic!
 
     """멘토링 신청을 취소합니다"""
     cancelTopic(

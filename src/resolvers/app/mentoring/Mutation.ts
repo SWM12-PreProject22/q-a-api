@@ -77,8 +77,8 @@ export default {
         }
         try {
             const postId = new ObjectId(topicId)
-            const cnt = await db.collection("topic").findOne({ _id: postId })
-            if (cnt === null) {
+            const qna = await db.collection("topic").findOne({ _id: postId })
+            if (qna === null) {
                 throw new ApolloError("", "null")
             }
             const result = await db.collection("user").find({
@@ -89,13 +89,14 @@ export default {
                     throw new ApolloError("")
                 }
             })
-            if (result.length >= cnt.count) {
+            if (result.length >= qna.count) {
                 throw new ApolloError("", "max")
             }
-            return await db.collection("user").insertOne({
+            await db.collection("user").insertOne({
                 topicId: postId,
                 id: applicant
-            }).then(({ result }) => result.n === 1 ? true : false)
+            })
+            return qna
         } catch (err) {
             if ("extensions" in err) {
                 if (err.extensions.code === "null") {
