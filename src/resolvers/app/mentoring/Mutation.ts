@@ -77,15 +77,20 @@ export default {
         }
         try {
             const postId = new ObjectId(topicId)
-            const result = await db.collection("user").findOne({
-                topicId: postId,
-                id: applicant
-            })
-            if (result !== null) {
-                throw new ApolloError("")
-            }
-            if (await db.collection("topic").findOne({ _id: postId }) === null) {
+            const cnt = await db.collection("topic").findOne({ _id: postId })
+            if (cnt === null) {
                 throw new ApolloError("", "null")
+            }
+            const result = await db.collection("user").find({
+                topicId: postId
+            }).toArray()
+            result.forEach((user) => {
+                if (user.id === applicant) {
+                    throw new ApolloError("")
+                }
+            })
+            if (result.length >= cnt.count) {
+                throw new ApolloError("", "max")
             }
             return await db.collection("user").insertOne({
                 topicId: postId,
@@ -95,6 +100,9 @@ export default {
             if ("extensions" in err) {
                 if (err.extensions.code === "null") {
                     throw new ApolloError("해당 게시글이 존재하지 않습니다.")
+                }
+                else if (err.extensions.code === "max") {
+                    throw new ApolloError("해당 멘토링 모집의 인원이 마감되었습니다.")
                 }
                 else {
                     throw new ApolloError("이미 신청한 유저입니다.")

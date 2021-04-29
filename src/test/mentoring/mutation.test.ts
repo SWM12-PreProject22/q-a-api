@@ -276,7 +276,7 @@ describe(`Mutation Test`, () => {
                 const mutation = `
                     mutation{
                         signTopic(
-                            topicId:"123412341234123412341234",
+                            topicId:"aaaaaaaaaaaaaaaaaaaaaaaa",
                             applicant:"erolf0123"
                         )
                     }
