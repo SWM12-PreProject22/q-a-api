@@ -149,14 +149,16 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[0]}",
                             applicant:"erolf0123"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.signTopic, true)
+                assert.deepStrictEqual(data.data.signTopic.id, topicIds[0])
             })
 
             it("signTopic - 2", async () => {
@@ -165,14 +167,16 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[0]}",
                             applicant:"namjs1540"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.signTopic, true)
+                assert.deepStrictEqual(data.data.signTopic.id, topicIds[0])
             })
 
             it("signTopic - 3", async () => {
@@ -181,14 +185,16 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[0]}",
                             applicant:"kkzkk1234"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.signTopic, true)
+                assert.deepStrictEqual(data.data.signTopic.id, topicIds[0])
             })
 
             it("signTopic - 4", async () => {
@@ -197,14 +203,16 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[0]}",
                             applicant:"SeungWon"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.signTopic, true)
+                assert.deepStrictEqual(data.data.signTopic.id, topicIds[0])
             })
 
             it("signTopic - 5", async () => {
@@ -213,14 +221,16 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[1]}",
                             applicant:"erolf0123"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.signTopic, true)
+                assert.deepStrictEqual(data.data.signTopic.id, topicIds[1])
             })
 
             it("signTopic - 6", async () => {
@@ -229,14 +239,16 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[2]}",
                             applicant:"erolf0123"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
                     mutation
                 })
                 const data = parse(res)
-                assert.deepStrictEqual(data.data.signTopic, true)
+                assert.deepStrictEqual(data.data.signTopic.id, topicIds[2])
             })
         })
         describe("Failure", () => {
@@ -246,7 +258,9 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"${topicIds[0]}",
                             applicant:"erolf0123"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
@@ -262,7 +276,9 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"ㅁㄴㅇㄹ",
                             applicant:"erolf0123"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
@@ -278,7 +294,9 @@ describe(`Mutation Test`, () => {
                         signTopic(
                             topicId:"aaaaaaaaaaaaaaaaaaaaaaaa",
                             applicant:"erolf0123"
-                        )
+                        ){
+                            id
+                        }
                     }
                 `
                 const res = await client.mutate({
